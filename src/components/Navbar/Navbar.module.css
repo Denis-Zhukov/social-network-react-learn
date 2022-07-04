@@ -1,0 +1,7 @@
+.navbar {
+	align-self: start;
+	border: 1px solid black;
+	border-radius: 0 20px 0;
+	background-color: white;
+	overflow: hidden;
+}

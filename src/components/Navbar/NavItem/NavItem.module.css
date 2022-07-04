@@ -1,0 +1,19 @@
+.navItem {
+	display: block;
+	padding: 7px 7px;
+
+	color: black;
+	font-weight: 500;
+	cursor: pointer !important;
+	text-decoration: none;
+	transition: all 250ms ease-in-out;
+}
+
+.navItem:hover {
+	background-color: #dfdfdf;
+}
+
+.active {
+	background: black !important;
+	color: white !important;
+}

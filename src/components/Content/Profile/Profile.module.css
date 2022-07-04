@@ -1,0 +1,14 @@
+.content {
+	display: flex;
+	flex-direction: column;
+}
+
+.content > * {
+	margin-bottom: 25px;
+}
+
+.header {
+	height: 15vh;
+	object-position: center center;
+	object-fit: cover;
+}

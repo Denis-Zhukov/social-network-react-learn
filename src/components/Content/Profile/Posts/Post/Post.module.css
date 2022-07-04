@@ -1,0 +1,29 @@
+.avatar {
+	display: block;
+	width: 60px;
+	height: 60px;
+
+	margin: 0 0.5rem 0 0;
+
+	float: left;
+	shape-outside: ellipse(60px 40px at 20% 40%);
+	border-radius: 30px 0 30px 0;
+
+	background: red;
+}
+
+.name {
+	font: bold 16px Roboto, sans-serif;
+	margin-bottom: 0.5rem;
+}
+
+.text {
+	margin-top: 16px;
+	text-align: justify;
+}
+
+.text::after {
+	content: "";
+	display: block;
+	clear: both;
+}
