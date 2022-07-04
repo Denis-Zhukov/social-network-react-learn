@@ -22,7 +22,7 @@ export let Posts = () => {
             <input className={s.submitBtn} type="submit" value="Submit" />
 
             <div className={s.profilePosts}>
-                {posts?.length ? posts.map(p => <Post avatar={p.avatar} name={p.name}>{p.text}</Post>) :
+                {posts?.length ? posts.map(p => <Post {...p} />) :
                     <p>Постов нет</p>}
             </div>
         </div>

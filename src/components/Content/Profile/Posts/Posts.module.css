@@ -1,6 +1,8 @@
 .posts {
 	display: flex;
 	flex-direction: column;
+
+	padding: 0 .5rem;
 }
 
 .posts>*{
@@ -20,7 +22,12 @@
 	outline: none;
 	border: none;
 
+	background: #f5f5f5;
+	border: 1px solid black;
+	border-radius: 0 20px 0 20px;
+	padding: 0 10px;
 	font: 16px Roboto, sans-serif;
+	overflow: hidden;
 }
 
 .submitBtn {

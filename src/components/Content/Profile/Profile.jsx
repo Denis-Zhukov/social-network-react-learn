@@ -8,7 +8,7 @@ import header from "./../../../assets/header.jpg";
 export let Profile = () => (
     <div className={s.content}>
         <img src={header} alt="Header" className={s.header} />
-        <PageBlock classNmae={s.pageBlock} />
+        <PageBlock />
         <Posts />
     </div>
 );

@@ -1,9 +1,11 @@
 .block {
 	display: flex;
+
+	padding: 0 .5rem;
 }
 
 .block > img {
 	margin-right: 20px;
-	width: 20vh;
-	height: 20vh;
+	width: 125px;
+	height: 125px;
 }

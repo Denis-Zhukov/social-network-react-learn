@@ -27,3 +27,20 @@
 	display: block;
 	clear: both;
 }
+
+.rating{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-end;
+	margin: 0 auto;
+}
+
+.rate{
+	cursor: pointer;
+	user-select: none;
+}
+
+.count:nth-child(2){
+	margin-right: 15px;
+}
