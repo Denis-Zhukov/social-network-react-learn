@@ -9,8 +9,16 @@
 	grid-template-rows: minmax(auto, 40px) 1fr minmax(auto, 30px);
 }
 
+.content {
+	border: 1px solid black;
+	border-radius: 20px 0 20px;
+	background-color: white;
+
+	overflow: hidden;
+}
+
 @media (max-width: 1200px) {
-	.app{
+	.app {
 		padding: 0 5px;
 	}
 }

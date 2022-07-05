@@ -1,0 +1,8 @@
+.wrapper{
+	display: flex;
+	padding: .5rem 0;
+}
+
+.wrapper>*:nth-child(1){
+	width: 25%;
+}

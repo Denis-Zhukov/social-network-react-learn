@@ -1,0 +1,32 @@
+.item::before {
+	display: inline-block;
+	content: "●";
+	margin-right: 3px;
+
+	position: relative;
+	left: 0;
+	top: -1px;
+}
+
+.item {
+	display: block;
+
+	padding: .25rem .5rem;
+
+	font: 16px Roboto, sans-serif;
+	color: black;
+	text-decoration: none;
+
+	cursor: pointer;
+	user-select: none;
+	transition: all 250ms ease-in-out;
+}
+
+.item:hover {
+	background-color: #dfdfdf;
+}
+
+.active {
+	background: black !important;
+	color: white !important;
+}

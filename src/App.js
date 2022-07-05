@@ -2,29 +2,28 @@ import React from "react";
 import { Header } from "./components/Header/Header";
 import { Navbar } from "./components/Navbar/Navbar";
 import { Profile } from "./components/Content/Profile/Profile";
+import { Messages } from "./components/Content/Messages/Messages";
 import { Footer } from "./components/Footer/Footer";
 import "./App.css";
 
-import { BrowserRouter, Routes as Switch, Route } from "react-router-dom";
+import { Routes as Switch, Route } from "react-router-dom";
 
-let App = () =>
+let App = ({navbar, profile, messages, addPost, setValueInput}) =>
     (
-        <BrowserRouter>
-            <div className="app">
-                <Header />
-                <Navbar />
+        <div className="app">
+            <Header />
+            <Navbar {...navbar} />
 
-                <Switch>
-                    <Route exact path="profile" element={<Profile />} />
-                    <Route exact path="messages" element={<Profile />} />
-                    <Route exact path="news" element={<Profile />} />
-                    <Route exact path="music" element={<Profile />} />
-                    <Route exact path="settings" element={<Profile />} />
-                </Switch>
+            <Switch>
+                <Route path="profile" element={<Profile {...profile} addPost={addPost} setValueInput ={setValueInput} className="content" />} />
+                <Route path={"messages/*"} element={<Messages {...messages} className="content" />} />
+                <Route path="news" element={<Profile {...profile} addPost={addPost} setInputValue ={setValueInput} className="content" />} />
+                <Route path="music" element={<Profile {...profile} addPost={addPost} setInputValue ={setValueInput} className="content" />} />
+                <Route path="settings" element={<Profile {...profile} addPost={addPost} setInputValue ={setValueInput} className="content" />} />
+            </Switch>
 
-                <Footer />
-            </div>
-        </BrowserRouter>
+            <Footer />
+        </div>
     );
 
 

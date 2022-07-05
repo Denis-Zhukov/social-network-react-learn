@@ -1,11 +1,23 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
 import App from "./App";
+import { store } from "./redux/state";
+import "./index.css";
+
+import state from "./redux/state";
+import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-    <React.StrictMode>
-        <App />
-    </React.StrictMode>,
-);
+
+const render = () => {
+    root.render(
+        <BrowserRouter>
+            <React.StrictMode>
+                <App addPost={store.addPost.bind(store)} setValueInput={store.setValueInput.bind(store)} {...store.state} />
+            </React.StrictMode>
+        </BrowserRouter>,
+    );
+};
+
+store.subscribe(render);
+render(state);
