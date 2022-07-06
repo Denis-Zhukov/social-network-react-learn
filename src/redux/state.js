@@ -4,6 +4,9 @@ import avatar from "./../assets/logo.svg";
 
 export let store = {
     _render: null,
+    subscribe(observer) {
+        this._render = observer;
+    },
 
     _state: {
         navbar: {
@@ -45,23 +48,29 @@ export let store = {
         },
     },
 
+    get state() {
+        return this._state;
+    },
 
-    addPost(newPost) {
+    _addPost(newPost) {
         this._state.profile.posts.push(newPost);
         this._render?.(this._state);
     },
 
-    setValueInput(value) {
+    _setValueInput(value) {
         this._state.profile.valueInput = value;
         this._render?.(this._state);
     },
-
-    subscribe(observer) {
-        this._render = observer;
-    },
-
-    get state() {
-        return this._state;
+    
+    dispatch(action) {
+        switch( action.type ) {
+            case "ADD-POST":
+                this._addPost(action.post);
+                break;
+            case "SET-VALUE-INPUT":
+                this._setValueInput(action.text);
+                break;
+        }
     },
 };
 

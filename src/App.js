@@ -8,18 +8,18 @@ import "./App.css";
 
 import { Routes as Switch, Route } from "react-router-dom";
 
-let App = ({navbar, profile, messages, addPost, setValueInput}) =>
+let App = ({navbar, profile, messages, dispatch}) =>
     (
         <div className="app">
             <Header />
             <Navbar {...navbar} />
 
             <Switch>
-                <Route path="profile" element={<Profile {...profile} addPost={addPost} setValueInput ={setValueInput} className="content" />} />
+                <Route path="profile" element={<Profile {...profile} dispatch={dispatch} className="content" />} />
                 <Route path={"messages/*"} element={<Messages {...messages} className="content" />} />
-                <Route path="news" element={<Profile {...profile} addPost={addPost} setInputValue ={setValueInput} className="content" />} />
-                <Route path="music" element={<Profile {...profile} addPost={addPost} setInputValue ={setValueInput} className="content" />} />
-                <Route path="settings" element={<Profile {...profile} addPost={addPost} setInputValue ={setValueInput} className="content" />} />
+                <Route path="news" element={<Profile {...profile} className="content" />} />
+                <Route path="music" element={<Profile {...profile} className="content" />} />
+                <Route path="settings" element={<Profile {...profile} className="content" />} />
             </Switch>
 
             <Footer />

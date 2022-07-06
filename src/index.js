@@ -13,7 +13,7 @@ const render = () => {
     root.render(
         <BrowserRouter>
             <React.StrictMode>
-                <App addPost={store.addPost.bind(store)} setValueInput={store.setValueInput.bind(store)} {...store.state} />
+                <App dispatch={store.dispatch.bind(store)} {...store.state} />
             </React.StrictMode>
         </BrowserRouter>,
     );
