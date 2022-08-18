@@ -9,6 +9,7 @@ import "./App.css";
 import {Routes as Switch, Route} from "react-router-dom";
 
 let App = ({navbar, profile, messages, dispatch}) => {
+    debugger;
     return (
         <div className="app">
             <Header/>

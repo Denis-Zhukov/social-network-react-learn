@@ -4,10 +4,6 @@ import {messagesReducer} from "./messagesReducer";
 import {navbarReducer} from "./navbarReducer";
 import {profileReducer} from "./profileReducer";
 
-const ADD_POST = "ADD-POST";
-const SET_VALUE_INPUT = "SET-VALUE-INPUT";
-const UPDATE_NEW_MESSAGE_BODY = "UPDATE-NEW-MESSAGE-BODY";
-const SEND_MESSAGE = "SEND-MESSAGE";
 
 export let store = {
     _render: null,
@@ -81,28 +77,6 @@ export let store = {
         this._render(this.state);
     },
 };
-
-export const changeInputActionCreator = (content) => {
-    return {type: SET_VALUE_INPUT, text: content};
-}
-
-export const changeMessageBodyCreator = (text) => {
-    return {
-        type: UPDATE_NEW_MESSAGE_BODY,
-        text
-    };
-}
-
-export const addPostActionCreator = ({id, avatar, name, text}) => {
-    return {
-        type: ADD_POST,
-        post: {id, avatar, name, text}
-    };
-}
-
-export const sendMessageCreator = (text) => ({
-    type: SEND_MESSAGE, text
-})
 
 export default store;
 window.store = store;

@@ -1,8 +1,31 @@
 const UPDATE_NEW_MESSAGE_BODY = "UPDATE-NEW-MESSAGE-BODY";
 const SEND_MESSAGE = "SEND-MESSAGE";
 
-export const messagesReducer = (state, action) => {
+export const sendMessageCreator = (text) => ({
+    type: SEND_MESSAGE, text
+})
 
+export const changeMessageBodyCreator = (text) => {
+    return {
+        type: UPDATE_NEW_MESSAGE_BODY,
+        text
+    };
+}
+
+const initialState = {
+    dialogs: [
+        {id: 12, name: "Denis Zhukov"},
+        {id: 3203, name: "Artem Mishchenko"},
+        {id: 320, name: "Anna Glushenok"},
+    ],
+
+    messages: [
+        {id: 1, text: "Hi"},
+    ],
+    newMessageBody: "1"
+};
+
+export const messagesReducer = (state = initialState, action) => {
     const setValueNewMessage = (value) => {
         state.newMessageBody = value;
     };
@@ -19,7 +42,8 @@ export const messagesReducer = (state, action) => {
         case SEND_MESSAGE:
             sendMessage(action.text);
             break;
-        default: break;
+        default:
+            break;
     }
 
     return state;

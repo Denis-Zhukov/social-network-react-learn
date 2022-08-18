@@ -1,5 +1,5 @@
 import React from "react";
-import {changeMessageBodyCreator, sendMessageCreator} from "../../../../redux/state";
+import {changeMessageBodyCreator, sendMessageCreator} from "../../../../redux/messagesReducer";
 import s from "./Letters.module.css"
 
 export const Letters = ({newMessageBody, messages, dispatch}) => {

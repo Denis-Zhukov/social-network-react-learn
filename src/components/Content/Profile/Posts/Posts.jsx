@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./Posts.module.css";
 import {Post} from "./Post/Post";
-import {changeInputActionCreator, addPostActionCreator} from "../../../../redux/state";
+import {changeInputActionCreator, addPostActionCreator} from "../../../../redux/profileReducer";
 
 export const Posts = ({posts, valueInput, dispatch}) => {
     return (
