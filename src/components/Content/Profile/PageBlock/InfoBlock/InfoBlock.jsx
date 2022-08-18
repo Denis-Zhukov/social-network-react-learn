@@ -7,6 +7,6 @@ export let InfoBlock = ({fullname, dateOfBirth, city, education, webSite}) => (
         {dateOfBirth && <div>Date of Birth: {dateOfBirth}</div>}
         {city && <div>City: {city}</div>}
         {education && <div>Education: {education}</div>}
-        {webSite && <div>Web Site: <a href={webSite} target="_blank">{webSite}</a></div>}
+        {webSite && <div>Web Site: <a href={webSite} target="_blank" rel="noreferrer">{webSite}</a></div>}
     </div>
 );
