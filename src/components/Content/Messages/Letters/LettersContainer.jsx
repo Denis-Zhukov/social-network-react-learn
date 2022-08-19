@@ -1,27 +1,18 @@
-import React from "react";
-import StoreContext from "../../../../StoreContext";
 import {Letters} from "./Letters";
 import {changeMessageBodyCreator, sendMessageCreator} from "../../../../redux/messagesReducer";
+import {connect} from "react-redux";
 
-export const LettersContainer = () => (
-    <StoreContext.Consumer>
-        {
-            store => {
-                const state = store.getState().messages;
-                const dispatch = store.dispatch;
-                const onMessageChange = (text) => {
-                    dispatch(changeMessageBodyCreator(text));
-                }
-                const onMessageSend = (text) => dispatch(sendMessageCreator(text));
-                return (
-                    <Letters
-                        messages={state.messages}
-                        newMessageBody={state.newMessageBody}
-                        onMessageChange={onMessageChange}
-                        onMessageSend={onMessageSend}
-                    />
-                );
-            }
-        }
-    </StoreContext.Consumer>
-)
+
+const mapStateToProps = state => {
+    return ({
+        messages: state.messages.messages,
+        newMessageBody: state.messages.newMessageBody
+    });
+}
+
+const mapDispatchToProps = dispatch => ({
+    onMessageChange: (text) => dispatch(changeMessageBodyCreator(text)),
+    onMessageSend: (text) => dispatch(sendMessageCreator(text))
+})
+
+export const LettersContainer = connect(mapStateToProps, mapDispatchToProps)(Letters);
