@@ -26,23 +26,15 @@ const initialState = {
 };
 
 export const messagesReducer = (state = initialState, action) => {
-    state = {...state};
-
-    const setValueNewMessage = (value) => {
-        state.newMessageBody = value;
-    };
-
-    const sendMessage = (message) => {
-        state.messages = [...state.messages, {id: 6, text: message}];
-        state.newMessageBody = "";
-    };
-
     switch (action.type) {
         case UPDATE_NEW_MESSAGE_BODY:
-            setValueNewMessage(action.text);
-            break;
+            return {...state, newMessageBody: action.text};
         case SEND_MESSAGE:
-            action.text && sendMessage(action.text);
+            if (action.text) return {
+                ...state,
+                messages: [...state.messages, {id: 6, text: action.text}],
+                newMessageBody: ""
+            };
             break;
         default:
             break;

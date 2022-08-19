@@ -46,23 +46,11 @@ const initialState = {
 }
 
 export const profileReducer = (state = initialState, action) => {
-    state = {...state};
-
-    const addPost = (newPost) => {
-        state.posts = [...state.posts, newPost];
-    }
-
-    const setValueInput = (value) => {
-        state.valueInput = value;
-    }
-
     switch (action.type) {
         case ADD_POST:
-            addPost(action.post);
-            break;
+            return {...state, posts: [...state.posts, action.post]};
         case SET_VALUE_INPUT:
-            setValueInput(action.text);
-            break;
+            return {...state, valueInput: action.text};
         default:
             break;
     }
