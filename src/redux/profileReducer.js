@@ -46,15 +46,14 @@ const initialState = {
 }
 
 export const profileReducer = (state = initialState, action) => {
-    const newState = {...state};
-    // const newState = JSON.parse(JSON.stringify(state))
+    state = {...state};
 
     const addPost = (newPost) => {
-        newState.posts = [newState.posts, ...newPost];
+        state.posts = [...state.posts, newPost];
     }
 
     const setValueInput = (value) => {
-        newState.valueInput = value;
+        state.valueInput = value;
     }
 
     switch (action.type) {
@@ -68,5 +67,5 @@ export const profileReducer = (state = initialState, action) => {
             break;
     }
 
-    return newState;
+    return state;
 }

@@ -26,12 +26,14 @@ const initialState = {
 };
 
 export const messagesReducer = (state = initialState, action) => {
+    state = {...state};
+
     const setValueNewMessage = (value) => {
         state.newMessageBody = value;
     };
 
     const sendMessage = (message) => {
-        state.messages.push({id: 6, text: message});
+        state.messages = [...state.messages, {id: 6, text: message}];
         state.newMessageBody = "";
     };
 
@@ -41,7 +43,6 @@ export const messagesReducer = (state = initialState, action) => {
             break;
         case SEND_MESSAGE:
             action.text && sendMessage(action.text);
-            console.log(state)
             break;
         default:
             break;
