@@ -22,7 +22,7 @@ const initialState = {
     messages: [
         {id: 1, text: "Hi"},
     ],
-    newMessageBody: "1"
+    newMessageBody: ""
 };
 
 export const messagesReducer = (state = initialState, action) => {
@@ -40,7 +40,8 @@ export const messagesReducer = (state = initialState, action) => {
             setValueNewMessage(action.text);
             break;
         case SEND_MESSAGE:
-            sendMessage(action.text);
+            action.text && sendMessage(action.text);
+            console.log(state)
             break;
         default:
             break;

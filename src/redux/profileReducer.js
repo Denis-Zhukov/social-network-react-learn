@@ -16,7 +16,7 @@ export const addPostActionCreator = ({id, avatar, name, text}) => {
 }
 
 const initialState = {
-    header: header,
+    headerImage: header,
     avatar: avatar,
     info: {
         fullname: "Denis Zhukov",
