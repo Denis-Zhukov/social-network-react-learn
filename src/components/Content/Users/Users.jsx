@@ -1,18 +1,21 @@
-import React, {useEffect} from "react";
+import React from "react";
 import {UserCard} from "./UserCard/UserCard";
-import s from "./Users.module.css"
-import axios from "axios";
+import s from "./Users.module.css";
 
-export const UsersF = ({users, follow, unfollow, setUsers}) => {
-    useEffect(() => {
-        (async () => {
-            const res = await axios.get("https://social-network.samuraijs.com/api/1.0/users")
-            setUsers(res.data.items)
-        })();
-    }, [setUsers])
+export const Users = ({totalUsersCount, pageSize, follow, unfollow, onPageChanged, currentPage, users}) => {
+    const pagesCount = Math.min(Math.ceil(totalUsersCount / pageSize), 10);
+
+    const pages = new Array(pagesCount).fill(0).map((_, i) => (
+        <span key={i}
+            className={`${currentPage === (i + 1) && s.selectedPage} ${s.page}`}
+            onClick={() => onPageChanged(i + 1)}
+        >{i + 1}</span>));
 
     return (
         <div className={`content ${s.wrapper}`}>
+            <div className={s.pagination}>
+                {pages}
+            </div>
             {users.map(u => <UserCard user={u} follow={follow} unfollow={unfollow} key={u.id}/>)}
         </div>
     )

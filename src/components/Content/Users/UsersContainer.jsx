@@ -1,5 +1,5 @@
 import {connect} from "react-redux";
-import {UsersC} from "./UsersC";
+import {UsersAPIComponent} from "./UsersAPIComponent";
 import {followAC, setCurrentPageAC, setTotalUsersCountAC, setUsersAC, unfollowAC} from "../../../redux/usersRudecer";
 
 const mapStateToProps = (state) => ({
@@ -17,4 +17,4 @@ const mapDispatchToProps = (dispatch) => ({
     setTotalUsersCount: (count) => dispatch(setTotalUsersCountAC(count))
 })
 
-export const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(UsersC);
+export const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(UsersAPIComponent);
