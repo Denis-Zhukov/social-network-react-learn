@@ -1,0 +1,47 @@
+.card {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1.5rem;
+}
+
+.leftBlock {
+    display: flex;
+    flex-direction: column;
+}
+
+.leftBlock > img {
+    border-radius: 50%;
+    border: 1px solid black;
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: .25rem;
+}
+
+.leftBlock > button {
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 10px;
+    outline: none;
+    height: 24px;
+}
+
+.rightBlock {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 .5rem;
+    padding: 0 .5rem;
+    width: 100%;
+    margin-bottom: calc(24px + 0.25rem);
+
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.userBlock {
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 24px - 0.25rem);
+    justify-content: space-between;
+}
+

@@ -7,6 +7,7 @@ import {Routes as Switch, Route} from "react-router-dom";
 import {NavbarContainer} from "./components/Navbar/NavbarContainer";
 import {ProfileContainer} from "./components/Content/Profile/ProfileContainer";
 import {MessagesContainer} from "./components/Content/Messages/MessagesContainer";
+import {UsersContainer} from "./components/Content/Users/UsersContainer";
 
 let App = () => {
     return (
@@ -19,6 +20,7 @@ let App = () => {
                 <Route path={"messages/*"} element={<MessagesContainer className="content"/>}/>
                 <Route path="news" element={<ProfileContainer className="content"/>}/>
                 <Route path="music" element={<ProfileContainer className="content"/>}/>
+                <Route path="users" element={<UsersContainer/>}/>
                 <Route path="settings" element={<ProfileContainer className="content"/>}/>
             </Switch>
 
