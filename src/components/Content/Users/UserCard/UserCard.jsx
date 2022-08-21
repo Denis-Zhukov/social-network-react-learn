@@ -7,7 +7,7 @@ export const UserCard = ({user, follow, unfollow}) => {
     return (
         <div className={s.card}>
             <div className={s.leftBlock}>
-                <img src={url} alt="avatar"/>
+                <img src={user.photos.small ?? url} alt="avatar"/>
                 <button
                     onClick={user.followed ?
                         () => unfollow(user.id) :
@@ -17,10 +17,10 @@ export const UserCard = ({user, follow, unfollow}) => {
             </div>
             <div className={s.rightBlock}>
                 <div className={s.userBlock}>
-                    <div className="fullName">{user.fullName}</div>
+                    <div className="fullName">{user.name}</div>
                     <div className="status">{user.status}</div>
                 </div>
-                <div className="address">{user.location.country}, {user.location.city}</div>
+                <div className="address">{user.location?.country}, {user.location?.city}</div>
             </div>
         </div>
     )
