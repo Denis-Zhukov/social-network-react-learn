@@ -4,14 +4,17 @@ import {Users} from "./Users";
 
 export class UsersAPIComponent extends React.Component {
     getUsers = async (pageNumber = this.props.currentPage) => {
+        this.props.toggleIsLoading(true);
         const res = await axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`)
         this.props.setUsers(res.data.items)
         this.props.setTotalUsersCount(res.data.totalCount);
+        this.props.toggleIsLoading(false);
     }
 
     onPageChanged = (pageNumber) => {
         this.props.setCurrentPage(pageNumber);
         this.getUsers(pageNumber);
+
     }
 
     componentDidMount() {
@@ -28,6 +31,7 @@ export class UsersAPIComponent extends React.Component {
             pageSize={this.props.pageSize}
             onPageChanged={this.onPageChanged}
             currentPage={this.props.currentPage}
+            isLoading={this.props.isLoading}
         />
     }
 }
