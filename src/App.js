@@ -17,7 +17,8 @@ let App = () => {
 
             <Switch>
                 <Route path="profile" element={<ProfileContainer className="content"/>}/>
-                <Route path={"messages/*"} element={<MessagesContainer className="content"/>}/>
+                <Route path="profile/:id" element={<ProfileContainer className="content"/>}/>
+                <Route path="messages/*" element={<MessagesContainer className="content"/>}/>
                 <Route path="news" element={<ProfileContainer className="content"/>}/>
                 <Route path="music" element={<ProfileContainer className="content"/>}/>
                 <Route path="users" element={<UsersContainer/>}/>

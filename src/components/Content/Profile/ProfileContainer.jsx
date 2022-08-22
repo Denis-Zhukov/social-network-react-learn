@@ -1,5 +1,6 @@
-import {Profile} from "./Profile";
+import {ProfileAPIComponent} from "./ProfileAPIComponent";
 import {connect} from "react-redux";
+import {setProfile} from "../../../redux/profileReducer";
 
 
 const mapStateToProps = state => ({
@@ -8,6 +9,4 @@ const mapStateToProps = state => ({
     info: state.profile.info,
 });
 
-const mapDispatchToProps = dispatch => ({});
-
-export const ProfileContainer = connect(mapStateToProps, mapDispatchToProps)(Profile);
+export const ProfileContainer = connect(mapStateToProps, {setProfile})(ProfileAPIComponent);

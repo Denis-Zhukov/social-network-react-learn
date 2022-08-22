@@ -1,5 +1,6 @@
 import React from "react";
 import s from "./UserCard.module.css"
+import {NavLink} from "react-router-dom";
 
 const url = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/PNG_transparency_demonstration_1.png/640px-PNG_transparency_demonstration_1.png";
 
@@ -7,7 +8,9 @@ export const UserCard = ({user, follow, unfollow}) => {
     return (
         <div className={s.card}>
             <div className={s.leftBlock}>
-                <img src={user.photos.small ?? url} alt="avatar"/>
+                <NavLink to={`/profile/${user.id}`}>
+                    <img src={user.photos.small ?? url} alt="avatar"/>
+                </NavLink>
                 <button
                     onClick={user.followed ?
                         () => unfollow(user.id) :

@@ -3,6 +3,7 @@ import avatar from "../assets/logo.svg";
 
 const ADD_POST = "ADD-POST";
 const SET_VALUE_INPUT = "SET-VALUE-INPUT";
+const SET_PROFILE = "SET-PROFILE";
 
 export const changeInputActionCreator = (content) => {
     return {type: SET_VALUE_INPUT, text: content};
@@ -14,6 +15,8 @@ export const addPostActionCreator = ({id, avatar, name, text}) => {
         post: {id, avatar, name, text}
     };
 }
+
+export const setProfile = (profile) => ({type: SET_PROFILE, profile})
 
 const initialState = {
     headerImage: header,
@@ -51,6 +54,20 @@ export const profileReducer = (state = initialState, action) => {
             return {...state, posts: [...state.posts, action.post]};
         case SET_VALUE_INPUT:
             return {...state, valueInput: action.text};
+        case SET_PROFILE:
+            debugger
+            return {
+                ...state,
+                headerImage: action.profile.photos?.large,
+                avatar: action.profile.photos?.small,
+                info: {
+                    fullname: action.profile.fullName,
+                    dateOfBirth: action.profile.aboutMe,
+                    education: action.profile.lookingForAJobDescription,
+                    city: action.profile.aboutMe,
+                    webSite: action.profile.contacts?.vk,
+                }
+            }
         default:
             break;
     }

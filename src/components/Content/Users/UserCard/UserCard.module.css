@@ -9,13 +9,18 @@
     flex-direction: column;
 }
 
-.leftBlock > img {
+.leftBlock>a {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    margin-bottom: .25rem;
+}
+.leftBlock>a>img {
     border-radius: 50%;
     border: 1px solid black;
     width: 80px;
     height: 80px;
     object-fit: contain;
-    margin-bottom: .25rem;
 }
 
 .leftBlock > button {
