@@ -13,12 +13,12 @@ const SET_CURRENT_PAGE = "SET-CURRENT-PAGE";
 const SET_TOTAL_COUNT_USERS = "SET-TOTAL-COUNT-USERS";
 const TOGGLE_IS_LOADING = "TOGGLE-IS-LOADING";
 
-export const followAC = (userId) => ({type: FOLLOW, userId})
-export const unfollowAC = (userId) => ({type: UNFOLLOW, userId})
-export const setUsersAC = (users) => ({type: SET_USERS, users})
-export const setCurrentPageAC = (page) => ({type: SET_CURRENT_PAGE, page})
-export const setTotalUsersCountAC = (count) => ({type: SET_TOTAL_COUNT_USERS, count});
-export const toggleIsLoadingAC = (isLoading) => ({type: TOGGLE_IS_LOADING, isLoading});
+export const follow = (userId) => ({type: FOLLOW, userId})
+export const unfollow = (userId) => ({type: UNFOLLOW, userId})
+export const setUsers = (users) => ({type: SET_USERS, users})
+export const setCurrentPage = (page) => ({type: SET_CURRENT_PAGE, page})
+export const setTotalUsersCount = (count) => ({type: SET_TOTAL_COUNT_USERS, count});
+export const toggleIsLoading = (isLoading) => ({type: TOGGLE_IS_LOADING, isLoading});
 
 export const usersReducer = (state = initialState, action) => {
     switch (action.type) {

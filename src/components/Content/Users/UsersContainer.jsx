@@ -1,12 +1,12 @@
 import {connect} from "react-redux";
 import {UsersAPIComponent} from "./UsersAPIComponent";
 import {
-    followAC,
-    setCurrentPageAC,
-    setTotalUsersCountAC,
-    setUsersAC,
-    toggleIsLoadingAC,
-    unfollowAC
+    follow,
+    setCurrentPage,
+    setTotalUsersCount,
+    setUsers,
+    toggleIsLoading,
+    unfollow
 } from "../../../redux/usersRudecer";
 
 const mapStateToProps = (state) => ({
@@ -17,13 +17,6 @@ const mapStateToProps = (state) => ({
     isLoading: state.users.isLoading
 })
 
-const mapDispatchToProps = (dispatch) => ({
-    follow: (userId) => dispatch(followAC(userId)),
-    unfollow: (userId) => dispatch(unfollowAC(userId)),
-    setUsers: (users) => dispatch(setUsersAC(users)),
-    setCurrentPage: (page) => dispatch(setCurrentPageAC(page)),
-    setTotalUsersCount: (count) => dispatch(setTotalUsersCountAC(count)),
-    toggleIsLoading: (isLoading) => dispatch(toggleIsLoadingAC(isLoading))
-})
-
-export const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(UsersAPIComponent);
+export const UsersContainer = connect(mapStateToProps, {
+    follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, toggleIsLoading
+})(UsersAPIComponent);
