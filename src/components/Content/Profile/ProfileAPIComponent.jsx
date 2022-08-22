@@ -1,19 +1,20 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Profile} from "./Profile";
 import axios from "axios";
+import {useParams} from "react-router-dom";
 
-export class ProfileAPIComponent extends React.Component {
-    getProfile = async (id) => {
-        const response = await axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${2}`)
-        this.props.setProfile(response.data);
-    }
+export const ProfileAPIComponent = (props) => {
+    let {id} = useParams("id");
+    useEffect(() => {
+        (async () => {
+            id ??= 25565;
+            const response = await axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${id}`)
+            props.setProfile(response.data);
+        })();
+    }, [id])
 
-    componentDidMount() {
-        this.getProfile()
-    }
 
-    render() {
-        return <Profile {...this.props}/>
-    }
+    return <Profile {...props}/>
+
 }
 

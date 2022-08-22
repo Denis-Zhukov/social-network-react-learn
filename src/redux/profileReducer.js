@@ -55,7 +55,6 @@ export const profileReducer = (state = initialState, action) => {
         case SET_VALUE_INPUT:
             return {...state, valueInput: action.text};
         case SET_PROFILE:
-            debugger
             return {
                 ...state,
                 headerImage: action.profile.photos?.large,
